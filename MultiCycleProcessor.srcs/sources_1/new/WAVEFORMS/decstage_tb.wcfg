@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="decstage_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="buses" />
+            <top_module name="decstage_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="945.072 ns"></ZoomEndTime>
+      <Cursor1Time time="200.150 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="232"></NameColumnWidth>
+      <ValueColumnWidth column_width="113"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="13" />
+   <wvobject fp_name="/decstage_tb/Instr" type="array">
+      <obj_property name="ElementShortName">Instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/RF_WrEn" type="logic">
+      <obj_property name="ElementShortName">RF_WrEn</obj_property>
+      <obj_property name="ObjectShortName">RF_WrEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/ALU_out" type="array">
+      <obj_property name="ElementShortName">ALU_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ALU_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/MEM_out" type="array">
+      <obj_property name="ElementShortName">MEM_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/RF_WrData_sel" type="logic">
+      <obj_property name="ElementShortName">RF_WrData_sel</obj_property>
+      <obj_property name="ObjectShortName">RF_WrData_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/RF_B_sel" type="logic">
+      <obj_property name="ElementShortName">RF_B_sel</obj_property>
+      <obj_property name="ObjectShortName">RF_B_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/ImmExt" type="array">
+      <obj_property name="ElementShortName">ImmExt[1:0]</obj_property>
+      <obj_property name="ObjectShortName">ImmExt[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/RST" type="logic">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/Immed" type="array">
+      <obj_property name="ElementShortName">Immed[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Immed[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/RF_A" type="array">
+      <obj_property name="ElementShortName">RF_A[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RF_A[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/RF_B" type="array">
+      <obj_property name="ElementShortName">RF_B[31:0]</obj_property>
+      <obj_property name="ObjectShortName">RF_B[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">input[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">input[31:0][31:0]</obj_property>
+      <obj_property name="label">Registers 0-31</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[31]" type="array">
+         <obj_property name="ElementShortName">[31][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[30]" type="array">
+         <obj_property name="ElementShortName">[30][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[30][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[29]" type="array">
+         <obj_property name="ElementShortName">[29][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[29][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[28]" type="array">
+         <obj_property name="ElementShortName">[28][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[28][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[27]" type="array">
+         <obj_property name="ElementShortName">[27][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[27][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[26]" type="array">
+         <obj_property name="ElementShortName">[26][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[26][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[25]" type="array">
+         <obj_property name="ElementShortName">[25][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[25][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[24]" type="array">
+         <obj_property name="ElementShortName">[24][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[24][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[23]" type="array">
+         <obj_property name="ElementShortName">[23][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[23][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[22]" type="array">
+         <obj_property name="ElementShortName">[22][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[22][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[21]" type="array">
+         <obj_property name="ElementShortName">[21][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[21][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[20]" type="array">
+         <obj_property name="ElementShortName">[20][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[20][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[19]" type="array">
+         <obj_property name="ElementShortName">[19][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[18]" type="array">
+         <obj_property name="ElementShortName">[18][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[17]" type="array">
+         <obj_property name="ElementShortName">[17][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[16]" type="array">
+         <obj_property name="ElementShortName">[16][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[15]" type="array">
+         <obj_property name="ElementShortName">[15][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[14]" type="array">
+         <obj_property name="ElementShortName">[14][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[13]" type="array">
+         <obj_property name="ElementShortName">[13][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[12]" type="array">
+         <obj_property name="ElementShortName">[12][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[11]" type="array">
+         <obj_property name="ElementShortName">[11][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[10]" type="array">
+         <obj_property name="ElementShortName">[10][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[9]" type="array">
+         <obj_property name="ElementShortName">[9][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[9][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[8]" type="array">
+         <obj_property name="ElementShortName">[8][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[8][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[7]" type="array">
+         <obj_property name="ElementShortName">[7][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[6]" type="array">
+         <obj_property name="ElementShortName">[6][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[5]" type="array">
+         <obj_property name="ElementShortName">[5][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][31:0]</obj_property>
+         <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[4]" type="array">
+         <obj_property name="ElementShortName">[4][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[3]" type="array">
+         <obj_property name="ElementShortName">[3][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[2]" type="array">
+         <obj_property name="ElementShortName">[2][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[1]" type="array">
+         <obj_property name="ElementShortName">[1][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/decstage_tb/uut/rfile/mux1/input[0]" type="array">
+         <obj_property name="ElementShortName">[0][31:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

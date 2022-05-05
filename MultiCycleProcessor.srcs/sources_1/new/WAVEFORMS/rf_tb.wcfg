@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="rf_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="buses" />
+            <top_module name="rf_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,591.432 ns"></ZoomEndTime>
+      <Cursor1Time time="148.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="268"></NameColumnWidth>
+      <ValueColumnWidth column_width="123"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/rf_tb/Ard1" type="array">
+      <obj_property name="ElementShortName">Ard1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Ard1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/rf_tb/Ard2" type="array">
+      <obj_property name="ElementShortName">Ard2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Ard2[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/rf_tb/Awr" type="array">
+      <obj_property name="ElementShortName">Awr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">Awr[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/rf_tb/Din" type="array">
+      <obj_property name="ElementShortName">Din[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Din[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/rf_tb/Dout1" type="array">
+      <obj_property name="ElementShortName">Dout1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/rf_tb/Dout2" type="array">
+      <obj_property name="ElementShortName">Dout2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/rf_tb/WrEn" type="logic">
+      <obj_property name="ElementShortName">WrEn</obj_property>
+      <obj_property name="ObjectShortName">WrEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/rf_tb/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/rf_tb/RST" type="logic">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/rf_tb/inner_termin" type="logic">
+      <obj_property name="ElementShortName">inner_termin</obj_property>
+      <obj_property name="ObjectShortName">inner_termin</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="control_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="control_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="1,000.000 ns"></ZoomEndTime>
+      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="268"></NameColumnWidth>
+      <ValueColumnWidth column_width="119"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/control_tb/tALU_zero" type="logic">
+      <obj_property name="ElementShortName">tALU_zero</obj_property>
+      <obj_property name="ObjectShortName">tALU_zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tPC_sel" type="logic">
+      <obj_property name="ElementShortName">tPC_sel</obj_property>
+      <obj_property name="ObjectShortName">tPC_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tPC_LdEn" type="logic">
+      <obj_property name="ElementShortName">tPC_LdEn</obj_property>
+      <obj_property name="ObjectShortName">tPC_LdEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tALU_bin_sel" type="logic">
+      <obj_property name="ElementShortName">tALU_bin_sel</obj_property>
+      <obj_property name="ObjectShortName">tALU_bin_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tRF_WrEn" type="logic">
+      <obj_property name="ElementShortName">tRF_WrEn</obj_property>
+      <obj_property name="ObjectShortName">tRF_WrEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tRF_B_sel" type="logic">
+      <obj_property name="ElementShortName">tRF_B_sel</obj_property>
+      <obj_property name="ObjectShortName">tRF_B_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tRF_WrData_sel" type="logic">
+      <obj_property name="ElementShortName">tRF_WrData_sel</obj_property>
+      <obj_property name="ObjectShortName">tRF_WrData_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tMem_WrEn" type="logic">
+      <obj_property name="ElementShortName">tMem_WrEn</obj_property>
+      <obj_property name="ObjectShortName">tMem_WrEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tByteOp" type="logic">
+      <obj_property name="ElementShortName">tByteOp</obj_property>
+      <obj_property name="ObjectShortName">tByteOp</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tInstr" type="array">
+      <obj_property name="ElementShortName">tInstr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">tInstr[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tALU_func" type="array">
+      <obj_property name="ElementShortName">tALU_func[3:0]</obj_property>
+      <obj_property name="ObjectShortName">tALU_func[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/control_tb/tImmExt" type="array">
+      <obj_property name="ElementShortName">tImmExt[1:0]</obj_property>
+      <obj_property name="ObjectShortName">tImmExt[1:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+</wave_config>

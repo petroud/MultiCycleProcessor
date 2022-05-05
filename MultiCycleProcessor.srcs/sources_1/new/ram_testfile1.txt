@@ -1,0 +1,11 @@
+li r1, 128
+li r2, 256
+add r3, r1, r2
+add r2, r1, r2
+li r10, 0xabcd
+li r5, 0
+sw r10, 0x0(r5)
+lw r16, 0x0(r5)
+lb r3, 0x0(r5)
+sw r10, 2(r5)
+lw r12, 2(r5)
