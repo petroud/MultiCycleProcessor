@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Thu May  5 19:08:13 2022
+# Process ID: 11304
+# Current directory: C:/Users/Dimitris/Desktop/Git/MultiCycleProcessor
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19736 C:\Users\Dimitris\Desktop\Git\MultiCycleProcessor\MultiCycleProcessor.xpr
+# Log file: C:/Users/Dimitris/Desktop/Git/MultiCycleProcessor/vivado.log
+# Journal file: C:/Users/Dimitris/Desktop/Git/MultiCycleProcessor\vivado.jou
+# Running On: mojave, OS: Windows, CPU Frequency: 3691 MHz, CPU Physical cores: 2, Host memory: 8481 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Dimitris/Desktop/Git/MultiCycleProcessor/MultiCycleProcessor.xpr
+update_compile_order -fileset sources_1
