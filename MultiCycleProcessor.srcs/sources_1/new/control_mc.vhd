@@ -60,18 +60,28 @@ architecture Behavioral of control_mc is
 -- Total: 13 FSM states
 --
 type StateType is (RESET, FETCH, DECODE, EXEC_R, REG_WRITE_R, EXEC_I, REG_WRITE_I, B_COND, B, MEM_ACTION, MEM_READ, L_REG, MEM_WRITE);
-signal state: StateType;
+signal present_state: StateType;
+signal next_state: StateType;
+signal branch_pc: std_logic;
 
 begin
 
-    PROCESS BEGIN
-        WAIT UNTIL CLK'EVENT AND CLK='1';
-        
-        -- Reset is synchronous
-        if RST='1' then
-            state <= RESET;
-        else
-            case state is
+
+    PROCESS (CLK,RST)
+    BEGIN
+        if (RST='1') then
+            present_state<= RESET;
+        elsif (rising_edge(CLK)) then
+            present_state<= next_state;
+        end if;
+    end process;
+    
+    
+
+    PROCESS(present_state,Instr, ALU_zero)
+    BEGIN        
+            branch_pc <= '0';        
+            case present_state is
             
                 when RESET=>
                 
@@ -92,12 +102,12 @@ begin
                     ALU_out_Reg_WrEn <= '0';
                     MEM_Reg_WrEn <= '0'; 
                     
-                    state <= FETCH;
+                    next_state <= FETCH;
                     
                 when FETCH=>
                     
-                    PC_sel <= '0';
-                    PC_LdEn <= '0';
+                    PC_sel <= branch_pc;
+                    PC_LdEn <= '1';
                     
                     Instr_Reg_WrEn <= '1';
                     RF_A_Reg_WrEn <= '1';
@@ -105,11 +115,12 @@ begin
                     ALU_out_Reg_WrEn <= '1';
                     MEM_Reg_WrEn <= '1'; 
                     
-                    state <= DECODE;
+                    next_state <= DECODE;
                     
                 when DECODE=>
                     
                     PC_sel <= '0';
+                    branch_pc <= '0';
                     PC_LdEn <= '1';
                     ALU_func <= "0000";
                     ALU_bin_sel <= '-';
@@ -127,15 +138,15 @@ begin
                     MEM_Reg_WrEn <= '1';
                     
                     if(Instr(31 downto 26)="100000") then
-                        state <= EXEC_R;
+                        next_state <= EXEC_R;
                     elsif (Instr(31 downto 30)="11" AND Instr(28) = '0') then
-                        state <= EXEC_I;
+                        next_state <= EXEC_I;
                     elsif (Instr(31 downto 26)="111111") then
-                        state <= B;
+                        next_state <= B;
                     elsif (Instr(31 downto 26)="000000" OR Instr(31 downto 26)="000001") then
-                        state <= B_COND;
+                        next_state <= B_COND;
                     elsif (Instr(31 downto 26)="000011" OR Instr(31 downto 26)="000111" OR Instr(31 downto 26)="001111" or Instr(31 downto 26) ="011111") then
-                        state <= MEM_ACTION;
+                        next_state <= MEM_ACTION;
                     end if;
                                        
                 when EXEC_R=>
@@ -151,7 +162,7 @@ begin
                     Mem_WrEn <= '0';
                     ByteOp <= '-';
                
-                    state <= REG_WRITE_R;
+                    next_state <= REG_WRITE_R;
                                
                 when EXEC_I=>
                 
@@ -182,24 +193,21 @@ begin
                     Mem_WrEn <= '0';
                     ByteOp <= '-';
                     
-                    state <= REG_WRITE_I;   
+                    next_state <= REG_WRITE_I;   
                                  
                 when REG_WRITE_R=>
                   
                     RF_WrEn <= '1';
-                    PC_LdEn <= '1';
-                    state <= FETCH;                    
+                    next_state <= FETCH;                    
              
                 when REG_WRITE_I=>
                     
                     RF_WrEn <= '1';
-                    PC_LdEn <= '1';
-                    state <= FETCH;
+                    next_state <= FETCH;
                                     
                 when B=>
                      
-                    PC_sel <= '1';
-                    PC_LdEn <= '1';
+                    branch_pc <= '1';
                     ALU_func <= "0000";
                     ALU_bin_sel <= '0';
                     RF_WrEn <= '0';
@@ -209,7 +217,7 @@ begin
                     Mem_WrEn <= '0';
                     ByteOp <= '-';
                
-                    state <= FETCH;   
+                    next_state <= FETCH;   
                     
                 when B_COND=>
                    
@@ -221,12 +229,10 @@ begin
                     ImmExt <= "10";
                     Mem_WrEn <= '0';
                     ByteOp <= '-';
-
-
-                    PC_LdEn <= '1';
-                    PC_sel <= ALU_zero XOR Instr(26);
+                    
+                    branch_pc <= ALU_zero XOR Instr(26);
                 
-                    state <= FETCH;
+                    next_state <= FETCH;
                                    
                 when MEM_ACTION=>
                 
@@ -242,33 +248,29 @@ begin
                     end if;
                     
                     if(Instr(31 downto 26)="000011" OR Instr(31 downto 26)="001111") then
-                        state <= MEM_READ;
+                        next_state <= MEM_READ;
                     elsif(Instr(31 downto 26)="011111" OR Instr(31 downto 26)="000111") then
-                        state <= MEM_WRITE;
+                        next_state <= MEM_WRITE;
                     end if;       
                     
                     
                 when MEM_READ=>
                     
                     RF_B_sel <= '0';
-                    state <= L_REG;               
-
+                    next_state <= L_REG;               
+    
                 when L_REG=>
                     
                     RF_WrEn <= '1';
-                    PC_LdEn <= '1';
-                    state <= FETCH;
+                    next_state <= FETCH;
                                                  
                 when MEM_WRITE=>
                 
                     Mem_WrEn <= '1';
-                    PC_LdEn <= '1';
                     RF_B_sel <= '1';
-                    state <= FETCH;
-                    
-            end case;
-        end if;
+                    next_state <= FETCH;
+             end case;
+         
     END PROCESS;
-
 
 end Behavioral;
