@@ -72,32 +72,200 @@ begin
             state <= RESET;
         else
             case state is
+            
                 when RESET=>
-                    --Out manipulation
+                
+                    PC_sel <= '0';
+                    PC_LdEn <= '0';
+                    ALU_func <= "----";
+                    ALU_bin_sel <= '-';
+                    RF_WrEn <= '0';
+                    RF_B_sel <= '-';
+                    RF_WrData_sel <= '-';
+                    ImmExt <= "--";
+                    Mem_WrEn <= '0';
+                    ByteOp <= '-';
+                    
+                    Instr_Reg_WrEn <= '0';
+                    RF_A_Reg_WrEn <= '0';
+                    RF_B_Reg_WrEn <= '0';
+                    ALU_out_Reg_WrEn <= '0';
+                    MEM_Reg_WrEn <= '0'; 
+                    
+                    state <= FETCH;
+                    
                 when FETCH=>
-                    --Out manipulation
+                    
+                    PC_sel <= '0';
+                    PC_LdEn <= '0';
+                    
+                    Instr_Reg_WrEn <= '1';
+                    RF_A_Reg_WrEn <= '1';
+                    RF_B_Reg_WrEn <= '1';
+                    ALU_out_Reg_WrEn <= '1';
+                    MEM_Reg_WrEn <= '1'; 
+                    
+                    state <= DECODE;
+                    
                 when DECODE=>
-                    --Out manipulation                
+                    
+                    PC_sel <= '0';
+                    PC_LdEn <= '1';
+                    ALU_func <= "0000";
+                    ALU_bin_sel <= '-';
+                    RF_WrEn <= '0';
+                    RF_B_sel <= '0';
+                    RF_WrData_sel <= '0';
+                    ImmExt <= "--";
+                    Mem_WrEn <= '0';
+                    ByteOp <= '-';
+                    
+                    Instr_Reg_WrEn <= '0';
+                    RF_A_Reg_WrEn <= '1';
+                    RF_B_Reg_WrEn <= '1';  
+                    ALU_out_Reg_WrEn <= '1';
+                    MEM_Reg_WrEn <= '1';
+                    
+                    if(Instr(31 downto 26)="100000") then
+                        state <= EXEC_R;
+                    elsif (Instr(31 downto 30)="11" AND Instr(28) = '0') then
+                        state <= EXEC_I;
+                    elsif (Instr(31 downto 26)="111111") then
+                        state <= B;
+                    elsif (Instr(31 downto 26)="000000" OR Instr(31 downto 26)="000001") then
+                        state <= B_COND;
+                    elsif (Instr(31 downto 26)="000011" OR Instr(31 downto 26)="000111" OR Instr(31 downto 26)="001111" or Instr(31 downto 26) ="011111") then
+                        state <= MEM_ACTION;
+                    end if;
+                                       
                 when EXEC_R=>
-                    --Out manipulation              
+                
+                    PC_sel <= '0';
+                    PC_LdEn <= '0';
+                    ALU_func <= Instr(3 downto 0);
+                    ALU_bin_sel <= '0';
+                    RF_WrEn <= '0';
+                    RF_B_sel <= '0';
+                    RF_WrData_sel <= '1';
+                    ImmExt <= "--";
+                    Mem_WrEn <= '0';
+                    ByteOp <= '-';
+               
+                    state <= REG_WRITE_R;
+                               
                 when EXEC_I=>
-                    --Out manipulation                
+                
+                    PC_sel <= '0';
+                    PC_LdEn <= '0';
+                    
+                    if(Instr(28 downto 26)="000" OR Instr(28 downto 26)="001") then
+                        ALU_func <= "0000";
+                    elsif(Instr(28 downto 26)="010") then
+                        ALU_func <= "0101";
+                    elsif(Instr(28 downto 26)="011") then
+                        ALU_func <= "0011";
+                    end if;
+                                        
+                    ALU_bin_sel <= '1';
+                    RF_WrEn <= '0';
+                    RF_B_sel <= '1';
+                    RF_WrData_sel <= '1';
+                    
+                    if(Instr(28 downto 26)="000") then
+                        ImmExt <= "01";
+                    elsif(Instr(28 downto 26)="001") then
+                        ImmExt <= "11";
+                    elsif(Instr(28 downto 26)="010" OR Instr(28 downto 26)="011") then
+                        ImmExt <= "00";
+                    end if;
+                                        
+                    Mem_WrEn <= '0';
+                    ByteOp <= '-';
+                    
+                    state <= REG_WRITE_I;   
+                                 
                 when REG_WRITE_R=>
-                    --Out manipulation                
+                  
+                    RF_WrEn <= '1';
+                    PC_LdEn <= '1';
+                    state <= FETCH;                    
+             
                 when REG_WRITE_I=>
-                    --Out manipulation                
+                    
+                    RF_WrEn <= '1';
+                    PC_LdEn <= '1';
+                    state <= FETCH;
+                                    
                 when B=>
-                    --Out manipulation                
+                     
+                    PC_sel <= '1';
+                    PC_LdEn <= '1';
+                    ALU_func <= "0000";
+                    ALU_bin_sel <= '0';
+                    RF_WrEn <= '0';
+                    RF_B_sel <= '0';
+                    RF_WrData_sel <= '1';
+                    ImmExt <= "10";
+                    Mem_WrEn <= '0';
+                    ByteOp <= '-';
+               
+                    state <= FETCH;   
+                    
                 when B_COND=>
-                    --Out manipulation                
+                   
+                    ALU_func <= "0001";
+                    ALU_bin_sel <= '0';
+                    RF_WrEn <= '0';
+                    RF_B_sel <= '0';
+                    RF_WrData_sel <= '1';
+                    ImmExt <= "10";
+                    Mem_WrEn <= '0';
+                    ByteOp <= '-';
+
+
+                    PC_LdEn <= '1';
+                    PC_sel <= ALU_zero XOR Instr(26);
+                
+                    state <= FETCH;
+                                   
                 when MEM_ACTION=>
-                    --Out manipulation               
+                
+                    ALU_bin_sel <= '1';
+                    RF_WrData_sel <= '0';
+                    ALU_func <= "0000";
+                    ImmExt <= "01";
+                    
+                    if(Instr(31 downto 26)="000011" OR Instr(31 downto 26)="000111") then
+                        ByteOp <='0';
+                    else
+                        ByteOp <='1';
+                    end if;
+                    
+                    if(Instr(31 downto 26)="000011" OR Instr(31 downto 26)="001111") then
+                        state <= MEM_READ;
+                    elsif(Instr(31 downto 26)="011111" OR Instr(31 downto 26)="000111") then
+                        state <= MEM_WRITE;
+                    end if;       
+                    
+                    
                 when MEM_READ=>
-                    --Out manipulation                
+                    
+                    RF_B_sel <= '0';
+                    state <= L_REG;               
+
                 when L_REG=>
-                    --Out manipulation                
+                    
+                    RF_WrEn <= '1';
+                    PC_LdEn <= '1';
+                    state <= FETCH;
+                                                 
                 when MEM_WRITE=>
-                    --Out manipulation               
+                
+                    Mem_WrEn <= '1';
+                    PC_LdEn <= '1';
+                    RF_B_sel <= '1';
+                    state <= FETCH;
+                    
             end case;
         end if;
     END PROCESS;
