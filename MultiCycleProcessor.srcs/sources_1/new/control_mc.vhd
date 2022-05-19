@@ -59,7 +59,7 @@ architecture Behavioral of control_mc is
 --
 -- Total: 13 FSM states
 --
-type StateType is (RESET, FETCH, DECODE, EXEC_R, REG_WRITE_R, EXEC_I, REG_WRITE_I, B_COND, B, MEM_ACTION, MEM_READ, L_REG, MEM_WRITE);
+type StateType is (RESET, FETCH, DECODE, EXEC_R, REG_WRITE_R, EXEC_I, REG_WRITE_I, B, B_COND, B_COND_COMPLETE, MEM_ACTION, MEM_READ, L_REG, MEM_WRITE);
 signal present_state: StateType;
 signal next_state: StateType;
 signal branch_pc: std_logic;
@@ -80,7 +80,8 @@ begin
 
     PROCESS(present_state,Instr, ALU_zero)
     BEGIN        
-            branch_pc <= '0';        
+            branch_pc <= '0';
+           
             case present_state is
             
                 when RESET=>
@@ -96,7 +97,7 @@ begin
                     Mem_WrEn <= '0';
                     ByteOp <= '-';
                     
-                    Instr_Reg_WrEn <= '0';
+                    Instr_Reg_WrEn <= '1';
                     RF_A_Reg_WrEn <= '0';
                     RF_B_Reg_WrEn <= '0';
                     ALU_out_Reg_WrEn <= '0';
@@ -106,9 +107,9 @@ begin
                     
                 when FETCH=>
                     
-                    PC_sel <= branch_pc;
-                    PC_LdEn <= '1';
+                    PC_LdEn <= '0';
                     
+                    RF_WrEn <= '0';                    
                     Instr_Reg_WrEn <= '1';
                     RF_A_Reg_WrEn <= '1';
                     RF_B_Reg_WrEn <= '1';
@@ -121,7 +122,7 @@ begin
                     
                     PC_sel <= '0';
                     branch_pc <= '0';
-                    PC_LdEn <= '1';
+                    PC_LdEn <= '0';
                     ALU_func <= "0000";
                     ALU_bin_sel <= '-';
                     RF_WrEn <= '0';
@@ -158,7 +159,9 @@ begin
                     RF_WrEn <= '0';
                     RF_B_sel <= '0';
                     RF_WrData_sel <= '1';
+                    ---------------------
                     ImmExt <= "--";
+                    ---------------------
                     Mem_WrEn <= '0';
                     ByteOp <= '-';
                
@@ -198,16 +201,22 @@ begin
                 when REG_WRITE_R=>
                   
                     RF_WrEn <= '1';
+                    PC_LdEn <= '1';
+                    Instr_Reg_WrEn <= '1';
+
                     next_state <= FETCH;                    
              
                 when REG_WRITE_I=>
                     
                     RF_WrEn <= '1';
+                    Instr_Reg_WrEn <= '1';
+                    PC_LdEn <= '1';
+
                     next_state <= FETCH;
                                     
                 when B=>
-                     
-                    branch_pc <= '1';
+                                                    
+                    PC_sel <= '1';
                     ALU_func <= "0000";
                     ALU_bin_sel <= '0';
                     RF_WrEn <= '0';
@@ -215,25 +224,38 @@ begin
                     RF_WrData_sel <= '1';
                     ImmExt <= "10";
                     Mem_WrEn <= '0';
-                    ByteOp <= '-';
-               
-                    next_state <= FETCH;   
-                    
+                    ByteOp <= '-';   
+                    Instr_Reg_WrEn <= '1';
+                    PC_LdEn <= '1';
+
+                    next_state <= FETCH;
+
                 when B_COND=>
                    
                     ALU_func <= "0001";
                     ALU_bin_sel <= '0';
                     RF_WrEn <= '0';
-                    RF_B_sel <= '0';
+                    RF_B_sel <= '1';
                     RF_WrData_sel <= '1';
                     ImmExt <= "10";
                     Mem_WrEn <= '0';
                     ByteOp <= '-';
-                    
-                    branch_pc <= ALU_zero XOR Instr(26);
-                
+                                        
+                    next_state <= B_COND_COMPLETE;                
+               
+                when B_COND_COMPLETE=>
+                    if(Instr(26)='0' AND ALU_zero='1') then
+                        PC_sel <= '1';
+                    elsif(Instr(26)='1' AND ALU_zero='0') then
+                        PC_sel <= '1';
+                    else
+                        PC_sel <= '0';
+                    end if;
+                    Instr_Reg_WrEn <= '1';
+                    PC_LdEn <= '1';
+          
                     next_state <= FETCH;
-                                   
+                                                       
                 when MEM_ACTION=>
                 
                     ALU_bin_sel <= '1';
@@ -262,13 +284,16 @@ begin
                 when L_REG=>
                     
                     RF_WrEn <= '1';
+                    PC_LdEn <= '1';
                     next_state <= FETCH;
                                                  
                 when MEM_WRITE=>
                 
                     Mem_WrEn <= '1';
                     RF_B_sel <= '1';
+                    PC_LdEn <= '1';
                     next_state <= FETCH;
+                    
              end case;
          
     END PROCESS;

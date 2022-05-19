@@ -1,0 +1,23 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/alu.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/control_mc.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/datapath_mc.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/decoder_5x32.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/decstage.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/exstage.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/ifstage.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/immed_converter.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/memstage.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/mux_2x1.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/mux_2x1_5b.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/mux_32x1.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/pc_adder.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/proc_mc.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/ram.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/register_32.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/rf.vhd" \
+"../../../../MultiCycleProcessor.srcs/sources_1/new/proc_mc_tb.vhd" \
+
+# Do not sort compile order
+nosort

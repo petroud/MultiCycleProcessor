@@ -135,12 +135,4 @@ begin
         ByteOp => tByteOp
     );
     
-   
-    
-    
-    
-
-    
-
-
 end Behavioral;

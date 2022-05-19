@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="proc_mc_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="buses" />
+            <top_module name="proc_mc_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="999,995 ps"></ZoomStartTime>
+      <ZoomEndTime time="1,000,001 ps"></ZoomEndTime>
+      <Cursor1Time time="1,000,000 ps"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="268"></NameColumnWidth>
+      <ValueColumnWidth column_width="115"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/proc_mc_tb/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_mc_tb/RST" type="logic">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_mc_tb/inner_termin" type="logic">
+      <obj_property name="ElementShortName">inner_termin</obj_property>
+      <obj_property name="ObjectShortName">inner_termin</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_mc_tb/uut/datapathModule/decmodule/rfile/mux1/input" type="array">
+      <obj_property name="ElementShortName">input[31:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">input[31:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_mc_tb/uut/datapathModule/PC_sel" type="logic">
+      <obj_property name="ElementShortName">PC_sel</obj_property>
+      <obj_property name="ObjectShortName">PC_sel</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_mc_tb/uut/datapathModule/PC_LdEn" type="logic">
+      <obj_property name="ElementShortName">PC_LdEn</obj_property>
+      <obj_property name="ObjectShortName">PC_LdEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_mc_tb/uut/datapathModule/Instr" type="array">
+      <obj_property name="ElementShortName">Instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_mc_tb/uut/datapathModule/Instr_Reg_Out" type="array">
+      <obj_property name="ElementShortName">Instr_Reg_Out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">Instr_Reg_Out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_mc_tb/uut/datapathModule/Instr_Reg_WrEn" type="logic">
+      <obj_property name="ElementShortName">Instr_Reg_WrEn</obj_property>
+      <obj_property name="ObjectShortName">Instr_Reg_WrEn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/proc_mc_tb/uut/datapathModule/PC" type="array">
+      <obj_property name="ElementShortName">PC[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[31:0]</obj_property>
+   </wvobject>
+</wave_config>

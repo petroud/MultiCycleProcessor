@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="999,995 ps"></ZoomStartTime>
-      <ZoomEndTime time="1,000,002 ps"></ZoomEndTime>
-      <Cursor1Time time="1,000,000 ps"></Cursor1Time>
+      <ZoomStartTime time="352.040 ns"></ZoomStartTime>
+      <ZoomEndTime time="533.441 ns"></ZoomEndTime>
+      <Cursor1Time time="378.440 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="268"></NameColumnWidth>
       <ValueColumnWidth column_width="115"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="23" />
+   <WVObjectSize size="22" />
    <wvobject fp_name="/control_mc_tb/CLK" type="logic">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
@@ -34,6 +34,7 @@
    <wvobject fp_name="/control_mc_tb/Instr" type="array">
       <obj_property name="ElementShortName">Instr[31:0]</obj_property>
       <obj_property name="ObjectShortName">Instr[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/control_mc_tb/Instr_Reg_WrEn" type="logic">
       <obj_property name="ElementShortName">Instr_Reg_WrEn</obj_property>
@@ -99,13 +100,9 @@
       <obj_property name="ElementShortName">ImmExt[1:0]</obj_property>
       <obj_property name="ObjectShortName">ImmExt[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/control_mc_tb/inner_termin" type="logic">
-      <obj_property name="ElementShortName">inner_termin</obj_property>
-      <obj_property name="ObjectShortName">inner_termin</obj_property>
-   </wvobject>
-   <wvobject fp_name="/control_mc_tb/uut/curr_state" type="other">
-      <obj_property name="ElementShortName">curr_state</obj_property>
-      <obj_property name="ObjectShortName">curr_state</obj_property>
+   <wvobject fp_name="/control_mc_tb/uut/present_state" type="other">
+      <obj_property name="ElementShortName">present_state</obj_property>
+      <obj_property name="ObjectShortName">present_state</obj_property>
    </wvobject>
    <wvobject fp_name="/control_mc_tb/uut/next_state" type="other">
       <obj_property name="ElementShortName">next_state</obj_property>

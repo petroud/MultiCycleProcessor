@@ -28,7 +28,7 @@ entity datapath is
         PC: out std_logic_vector(31 downto 0);
         MM_Addr: out std_logic_vector(31 downto 0);
         MM_WrData: out std_logic_vector(31 downto 0);
-        MM_WrEn: out std_logic        
+        MM_WrEn: out std_logic  
     );
 end datapath;
 

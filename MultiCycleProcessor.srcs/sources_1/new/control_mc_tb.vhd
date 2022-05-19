@@ -89,29 +89,29 @@ begin
         
         -- R-instruction
         Instr <="100000" & "000000" & "000000" & "00000000" & "110011";
-        wait for 100ns;
+        wait for 500ns;
         
         -- I-instruction        
         Instr <="111000" & "000000" & "000000" & "00000000" & "000000";
-        wait for 100ns;
+        wait for 500ns;
         
         -- b 
         Instr <="111111" & "000000" & "000000" & "00000000" & "000000";
-        wait for 100ns;
+        wait for 500ns;
         
         
         -- beq
         Instr <="000000" & "000000" & "000000" & "00000000" & "000000";
         ALU_zero <= '1';
-        wait for 40ns;
+        wait for 500ns;
         
         -- sb
         Instr <="000111" & "000000" & "000000" & "00000000" & "000000";
-        wait for 100ns;
+        wait for 500ns;
         
         -- lw
         Instr <="001111" & "000000" & "000000" & "00000000" & "000000";
-        wait for 100ns;    
+        wait for 500ns;    
         
    
         wait;
@@ -124,13 +124,13 @@ begin
         --Vary the clock signal for low to high every 30ns 
         --Period = 20ns
         CLK <= '0';
-        wait for 10ns;
+        wait for 50ns;
         CLK <= '1';
-        wait for 10ns;
+        wait for 50ns;
         
         --The terminationg flag will be HIGH after a certain time 
         --The clock is generated for this amount of time 
-        inner_termin<='1' after 800ns;
+        inner_termin<='1' after 5000ns;
         
         --Checking if we should terminate the clock generation
         if inner_termin ='1' then

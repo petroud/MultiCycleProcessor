@@ -37,7 +37,7 @@ architecture syn of RAM is
 		end loop;
 	return ram;
 	end function;
-	signal RAM: ram_type := InitRamFromFile("p3.data");
+	signal RAM: ram_type := InitRamFromFile("p2.data");
 	begin
 		process (clk)
 		begin
